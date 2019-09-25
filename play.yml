@@ -1,0 +1,11 @@
+- name: test my new module
+  hosts: localhost
+  tasks:
+  - name: run the new module
+    nifi-deploy:
+      nifi_url: 'http://localhost:8080/nifi-api/'
+      template_file: 'test_template.xml' 
+      name: 'hello'
+      description: "test module"
+    register: result
+  - debug: var=result
